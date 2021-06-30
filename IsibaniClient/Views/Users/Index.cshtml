@@ -1,0 +1,246 @@
+﻿@model IEnumerable<IsibaniClient.Models.RegisterViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<p>
+    <input type="button" id="btnCreateUser" value="Create User" class="btn btn-default" />
+</p>
+
+
+<table id="tableUser" class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                <input type="button" id="btnEditUser" value="Edit" onclick="EditUser(@item.ClientId )" class="btn btn-default" /> |  //EditUser is a javascript function and passing Selected users id to the function
+                <input type="button" id="btnDetailUser" value="Details" onclick="Details(@item.ClientId)" class="btn btn-default" /> |   //Details is a javascript function
+                <input type="button" id="btnDeleteUser" value="Delete" onclick="Delete(@item.ClientId)" class="btn btn-default" />       //Delete is a javascript function
+            </td>
+        </tr>
+
+    }
+
+</table>
+
+
+<div id="CreateUser" class="form-horizontal">
+    <h4>Users</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2">Email</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="Email" id="Email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Name</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="Name" id="Name" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Address</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="Address" id="Address" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Phone Number</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="PhoneNumber" id="PhoneNumber" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" id="btnCreate" value="Create" class="btn btn-default" />
+            <input type="button" id="btnJson" value="Create Json" class="btn btn-default" />
+        </div>
+    </div>
+
+</div>
+<div class="form-horizontal" id="EditUser">
+    <h4>Users</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+   
+<div class="form-group">
+    <input type="hidden" id="IdEdit" name="IdEdit" />
+    <input type="hidden" id="IduserEdit" name="IduserEdit" />
+    <div class="form-group">
+        <label class="control-label col-md-2">EmailEdit</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="EmailEdit" id="EmailEdit" />
+        </div>
+    </div>
+    <label class="control-label col-md-2">Name</label>
+    <div class="col-md-10">
+        <input class="form-control" type="text" name="NameEdit" id="NameEdit" />
+    </div>
+</div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Address</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="AddressEdit" id="AddressEdit" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Phone Number</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="PhoneNumberEdit" id="PhoneNumberEdit" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" value="Save" id="btnSaveEdit" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+<div class="form-horizontal" id="EditUser"></div>
+
+
+<div id="UserDetails">
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <input type="hidden" id="IdDetails" name="IdDetails" />
+            <label id="">Name</label>
+        </dt>
+
+        <dd>
+            <label id="NameDetails"></label>
+        </dd>
+
+        <dt>
+            <label id="">Address</label>
+        </dt>
+
+        <dd>
+            <label id="AddressDetails"></label>
+        </dd>
+
+        <dt>
+            <label id="">Phone Number</label>
+        </dt>
+
+        <dd>
+            <label id="PhoneNumberDetails"></label>
+        </dd>
+
+    </dl>
+</div>
+
+<script type="text/javascript">
+    $("#btnCreate").click(function () {
+        var objUser = {};     //objUser is variable through which i am passing the details filled by the user to the controller
+        objUser.Email = $("#Email").val();
+        objUser.Name = $("#Name").val();            //fetching value from the textbox
+        objUser.Address = $("#Address").val();
+        objUser.Phone_Number = $("#PhoneNumber").val();
+        $.post("/Users/CreateUser", { objUser: objUser }, function (data)        //data is a variable which contains the data returned from the action method
+        {
+            if (data != null) {
+                alert("User Created");
+                location.reload();       //for refreshing the page after saving
+            }
+            else {
+                alert("Error");
+            }
+        });
+    })
+    function EditUser(ClientId) {
+
+        var tt = JSON.stringify(ClientId);
+        alert(ClientId);
+        $.get("/Users/EditUserJ", { Id: ClientId }, function (data) {              //fetching data of the selected user from controller
+            if (data != null) {
+                $("#tableUser").hide();
+                $("#CreateUser").hide();
+                $("#EditUser").show();
+
+                //data contains the details of the user
+                // now showing those details in the textbox
+                alert(data.name);
+                $("#EmailEdit").val(data.email);
+                $("#NameEdit").val(data.name);
+                $("#AddressEdit").val(data.address);
+                $("#PhoneNumberEdit").val(data.phoneNumber);
+                $("#IduserEdit").val(data.id);
+                $("#IdEdit").val(data.clientId);
+            }
+        });
+    }
+    $("#btnSaveEdit").click(function () {
+        var objUser = {};
+        objUser.Email = $("#EmailEdit").val();//same action as per creating the user
+        objUser.Id = $("#IduserEdit").val();
+        objUser.ClientId = $("#IdEdit").val();
+        objUser.Name = $("#NameEdit").val();
+        objUser.Address = $("#AddressEdit").val();
+        objUser.PhoneNumber = $("#PhoneNumberEdit").val();
+        $.post("/Users/EditUserJ", { objUser: objUser }, function (data) {
+            if (data != null) {
+                location.reload();
+                alert("User Edited");
+            }
+            else {
+                alert("Error");
+            }
+        });
+    })  
+    function Details(Id) {
+        $.get("/Users/GetDetails", { Id: Id }, function (data) {
+            if (data != null) {
+                $("#tableUser").hide();
+                $("#CreateUser").hide();
+                $("#EditUser").hide();
+                $("#UserDetails").hide();
+                $("#btnEditDetail").show();
+
+                //showing details from the data in the label  
+
+                $("#NameDetails").text(data.Name);
+                $("#AddressDetails").text(data.Address);
+                $("#PhoneNumberDetails").text(data.Phone_Number);
+                $("#IdDetails").text(data.Id);
+            }
+        });
+    }
+
+    $("#btnEditDetail").click(function () {
+        var Id = document.getElementById("IdDetails").textContent;
+        EditUser(Id);
+    })  
+</script>  

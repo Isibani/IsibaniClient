@@ -1,0 +1,35 @@
+﻿
+    <div id="divBrowserInfo"></div>
+    <div id="divImageHolder"></div>
+    <div>
+        <button id="btnClearImage">
+            Clear Image
+        </button>
+        <button id="btnLoadImage">
+            Load Base64 Image
+        </button>
+    </div>
+
+
+
+@*<script>
+$("#sendButton").click(function () {
+    var htmlBody = $("#myModal .modal-body").text();
+    var url = '@Url.Action("DidItWork", "Home", new { testUserName = "James Bond", testEmail = "james.bond@gmail.com" })';
+    $.ajax({
+        url: url,
+        success: function (result) {
+            alert("Success. It worked." + htmlBody);
+        },
+        error: function (xhr, status, errorThrown) {
+            alert("Sorry, there was a problem! Error: " + errorThrown + ". Status: " + status + ". Console: " + xhr);
+            console.log("Hello");
+            console.log("Error: " + errorThrown);
+            console.log("Status: " + status);
+            console.dir(xhr);
+            console.log("Good-bye");
+        },
+    });
+    return false;
+});
+</script>*@

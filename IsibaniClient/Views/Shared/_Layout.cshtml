@@ -1,0 +1,746 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Isibani Digital</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Template/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/Template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="~/Template/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/Template/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="~/Template/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Template/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/Template/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/Template/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/Template/plugins/summernote/summernote-bs4.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+        #Project, #Details, #AllProjects {
+            display: none;
+        }
+        .fullscreen {
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0;
+            top: 0;
+            left: 0;
+            align-content:center;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+            </ul>
+
+            <!-- SEARCH FORM -->
+            @*<form class="form-inline ml-3">
+                  <div class="input-group input-group-sm">
+                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                      <button class="btn btn-navbar" type="submit">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>*@
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            @*<a href="index3.html" class="brand-link">
+                  <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                       style="opacity: .8">
+                  <span class="brand-text font-weight-light">AdminLTE 3</span>
+                </a>*@
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    @*<div class="image">
+                          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                          <a href="#" class="d-block">Alexander Pierce</a>
+                        </div>*@
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                             with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Isibani Dashboard
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+
+                                    <a href="~/Home/Index" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Clients </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+
+                                    <a href="~/Account/Index" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Clients </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="~/Product/Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Products </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="~/ClientProduct/Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Client & Product</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!--<div class="content-header">
+              <div class="container-fluid">
+                <div class="row mb-2">
+                  <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Isibani</h1>
+                  </div>-->
+            <!-- /.col -->
+            <!--<div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">isibani</li>
+              </ol>
+            </div>-->
+            <!-- /.col -->
+            <!--</div>--><!-- /.row -->
+            <!--</div>--><!-- /.container-fluid -->
+            <!--</div>-->
+            <!-- /.content-header -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <!-- Small boxes (Stat box) -->
+                    <div class="row">
+                        @RenderBody()
+                    </div>
+                    <!-- /.row (main row) -->
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            @*<strong>Copyright &copy; 2014-2019 <a href="mxolisi"></a>.</strong>
+                All rights reserved.
+                <div class="float-right d-none d-sm-inline-block">
+                  <b>Version</b> 3.0.5
+                </div>*@
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/Template/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/Template/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Template/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Template/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <!-- ChartJS -->
+    <script src="~/Template/plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="~/Template/plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    @*<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+        <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>*@
+    <!-- jQuery Knob Chart -->
+    <script src="~/Template/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="~/Template/plugins/moment/moment.min.js"></script>
+    <script src="~/Template/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/Template/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="~/Template/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/Template/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Template/dist/js/adminlte.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    @*<script src="~/Template/dist/js/pages/dashboard.js"></script>*@
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Template/dist/js/demo.js"></script>
+    <script src="~/js/JavaScript.js"></script>
+    <script>
+
+        var clienttable, producttable, clientproducttable;
+        $(document).ready(function () {
+            var saveBTN = $('#save1');
+            var clientidbtn = $('#Test');
+            
+            var clientsDDL = $('#ClientId');
+            var productsDDL = $('#ProductId');
+            var clientproductsDDL = $('#ClientProductId');
+
+
+            $.ajax({
+                url: '/ClientProduct/GetAll',
+                method: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    clientsDDL.append($('<option/>', { value: -1, text: 'Select Client' }));
+                    productsDDL.append($('<option/>', { value: -1, text: 'Select Product' }));
+
+
+
+                    //clientsDDL.prop('disabled', false);
+                    //productsDDL.prop('disabled', false);
+
+                    $(data.clients).each(function (index, item) {
+                        clientsDDL.append($('<option/>', { value: item.clientId, text: item.name }));
+                    });
+                    $(data.products).each(function (index, item) {
+                        productsDDL.append($('<option/>', { value: item.productId, text: item.name }));
+                    });
+                },
+                error: function (err) {
+                    alert(err);
+                }
+            });
+            
+            //clientidbtn.click(function () {
+            //    var mygetvalue = $("#Test").val();
+            //    alert(mygetvalue);
+               
+
+            //    });
+           
+
+            clienttable = $("#example2").DataTable({
+                "ajax": {
+                    "url": "/Account/ClientList",
+                    "type": "GET",
+                    "datatype": "json",
+                      
+                },
+                "columns": [
+                    { "data": "name" },
+                    { "data": "email" },
+                    { "data": "address" },
+                    { "data": "phoneNumber" },
+                    {
+                        "data": "clientId", "render": function (data) {
+                            return '<td class="project_progress">' + '<div class="progress progress-sm">'
+                               ' <div class="progress-bar bg-green" role = "progressbar" aria - volumenow="77" aria - volumemin="0" aria - volumemax="100" style = "width: 77%" >'
+                              '</div >'
+                         '</div > '
+                            '<small>'
+                           "77 % Complete"
+                            '</small > '+
+                           '</td >'
+                            //var str = JSON.stringify(data);
+                            //return "<a class='btn btn-default btn-sm' onclick=EditUser('" + data + "')><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm 'style='margin-left:5px' onclick=EditUser1('" + data + "')><i class='fa fa-trash'></i> Delete</a>"
+
+                        },
+                        "orderable": false,
+                        "searchable": false,
+                        "width": "150px"
+
+                    }],
+                "language": {
+                    "emptyTable": "No data. <b>Add new</b>"
+                }
+            });
+
+            producttable = $("#example3").DataTable({
+                "ajax": {
+                    "url": "/Product/ProductList",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+
+                    { "data": "name" },
+                    { "data": "type" },
+                    { "data": "version" },
+                    { "data": "description" },
+                    {
+                        "data": "productId", "render": function (data) {
+                            var str = JSON.stringify(data);
+                            return "<a class='btn btn-default btn-sm' onclick=EditProduct1('" + data + "')><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm 'style='margin-left:5px' onclick=DeleteProduct('" + data + "')><i class='fa fa-trash'></i> Delete</a>"
+
+                        },
+                        "orderable": false,
+                        "searchable": false,
+                        "width": "150px"
+
+                    }],
+                "language": {
+                    "emptyTable": "No data. <b>Add new</b>"
+                }
+            });
+            clientproducttable = $("#example4").DataTable({
+                "ajax": {
+                    "url": "/ClientProduct/ClientProductList",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+
+                    { "data": "clientProducId" },
+                    { "data": "clientName" },
+                    { "data": "address" },
+                    { "data": "productName" },
+                    { "data": "type" },
+                    { "data": "version" },
+                    { "data": "description" },
+
+                    //{
+                    //    "data": "clientProducId",
+                    //    "orderable": false,
+                    //    "searchable": false,
+                    //    "render": function (data, type, row, meta) {
+                    //        var a = '<a onclick="setUserEdit(\'' + row.clientProducId + '\',\'' + row.clientId + '\',\'' + row.productId + '\')"><i class="fa fa-edit"></i></a>
+                    //        return a;
+                    //    }
+                    //}
+                    {
+                        "data":null, "render": function (data, type, row) {
+                         
+                            
+                            return "<a class='btn btn-default btn-sm' onclick=EditProductClientProduct1('" + row.clientProducId +"')><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm 'style='margin-left:5px' onclick=DeleteProduct('" + data + "')><i class='fa fa-trash'></i> Delete</a>"
+
+                        },
+                        "orderable": false,
+                        "searchable": false,
+                        "width": "150px"
+
+                    }
+
+                ],
+                "language": {
+                    "emptyTable": "No data. <b>Add new</b>"
+                }
+            });
+
+
+
+            saveBTN.click(function () {
+
+
+                var cl = clientsDDL.val();
+                var pr = productsDDL.val();
+                var cp = clientproductsDDL.val();
+
+                var estimate = $('#Estimatedbudget').val();
+                var amount = $('#Amountspent').val();
+
+                var duration = $('#Duration').val();
+           
+
+
+
+
+                $.ajax({
+                    url: '/ClientProduct/ClientProductRegister',
+                    method: 'post',
+                    dataType: 'json',
+                    data: { ClientProductId: cp, ClientId: cl, ProductId: pr, estimate, amount, duration },
+                    success: function (data) {
+                        alert(data.result);
+                        alert("Success Mxolisi");
+                       
+                   
+                        clientproducttable.ajax.reload();
+                    },
+                    error: function (err) {
+                        alert(err);
+                    }
+                });
+
+            });
+
+            jQueryModalPost = form => {
+
+                //if (form.isValid) {
+                //    alert("Testing");
+                    try {
+                        if (form.isValid) {
+                            alert("Testing");
+                        }
+                        $.ajax({
+                            type: 'Post',
+                            url: form.action,
+                            data: new FormData(form),
+                            contentType: false,
+                            processData: false,
+                            success: function (res) {
+                                alert(form.action);
+                                if (res.isValid) {
+                                    alert(res.result);
+                                    clienttable.ajax.reload();
+                                    //clienttable.reload();
+                                }
+
+                                alert(res.result);
+                                clienttable.ajax.reload();
+                            },
+                            error: function (err) {
+                                clienttable.ajax.reload();
+                                alert("Somethhing rong");
+                                console.log(err)
+
+                            }
+                        })
+                        return false;
+                    } catch (ex) {
+                        console.log(ex)
+                    }
+                //}
+                //return false;
+            }
+
+            var form = $("#create-form");
+            
+            
+               
+            jQueryModalPostp = form => {
+              
+                    try {
+                        $.ajax({
+                            type: 'Post',
+                            url: form.action,
+                            data: new FormData(form),
+                            contentType: false,
+                            processData: false,
+                            success: function (res) {
+                                alert(form.action);
+                                if (res.isValid) {
+                                    alert(res.result);
+                                    producttable.ajax.reload();
+                                    clienttable.reload();
+                                }
+
+                                alert(res.result);
+                                producttable.ajax.reload();
+                            },
+                            error: function (err) {
+                                producttable.ajax.reload();
+                                alert("Somethhing rong");
+                                console.log(err)
+
+                            }
+                        })
+                        return false;
+                    } catch (ex) {
+                        console.log(ex)
+                    }
+                
+
+                  
+                }
+         
+           
+
+        });
+
+        function AllProjects(ClientId) {
+        $('#example5').DataTable().destroy();
+             $("#example5").DataTable({
+                "ajax": {
+                     "url": "/Home/ClientProductList",
+                    "type": "GET",
+                    "datatype": "json",
+                     "data": {
+                         ClientId: ClientId,
+                     }
+                },
+                "columns": [
+
+                    { "data": "clientProducId" },
+                    { "data": "clientName" },
+                    { "data": "address" },
+                    { "data": "productName" },
+                    { "data": "type" },
+                    { "data": "version" },
+                    { "data": "description" },
+
+                   
+                    {
+                        "data": null, "render": function (data, type, row) {
+
+
+                            return "<a class='btn btn-default btn-sm' onclick=EditProductClientProduct1('" + row.clientProducId + "')><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm 'style='margin-left:5px' onclick=DeleteProduct('" + data + "')><i class='fa fa-trash'></i> Delete</a>"
+
+                        },
+                        "orderable": false,
+                        "searchable": false,
+                        "width": "150px"
+
+                    }
+
+                ],
+                "language": {
+                    "emptyTable": "No data. <b>Add new</b>"
+                }
+             });
+           
+            $('#Details').hide();
+            $('#project').show();
+            $('#modal-xl').modal('show');
+     
+        }
+        function Details(ClientId) {
+           
+            $.get("/Home/GetDetails", { ClientId: ClientId }, function (data) {              //fetching data of the selected user from controller
+                if (data != null) {
+                 
+                    alert(data.clientId);
+                    $("#ClientId").html(data.clientId);
+                    $("#ClientId").val(data.clientId);
+                    $("#Email").val(data.email);
+                    $("#Name").val(data.name);
+                    $("#Address").val(data.address);
+                    $("#PhoneNumber").val(data.phoneNumber);
+                    //$("#Iduser").val(data.id);
+                    //$("#IdEdit").val(data.clientId);
+                }
+            });
+            $('#project').hide();
+            $('#Details').show();
+            $('#modal-xl').modal('show');
+
+        }
+
+    </script>
+    <script>
+        var imageUrl = '@Url.Action("GetBase64Image", "Image")';
+
+        //var imageUrl = Url.Action("GetBase64Image", "Image");
+
+
+
+        var imgs = null;
+
+        $(document).ready(function () {
+            if ($.browser.msie) {
+                var browserMsg
+                    = "Your browser does not support Base64 image"
+                $("#divBrowserInfo").html(browserMsg);
+
+                $("#btnClearImage").attr("disabled", true);
+                $("#btnLoadImage").attr("disabled", true);
+            }
+
+            var displayImage = function (base64Data) {
+                var imag = "<img"
+                    + "src='" + "data:image/jpg;base64,"
+                    + base64Data + "'/>";
+
+                $("#divImageHolder").html(imag)
+            };
+
+            $("#btnLoadImage").click(function () {
+                if (imgs != null) {
+                    displayImage(imgs.base64imgage);
+                    return;
+                }
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: imageUrl,
+                    contentType: 'application/json',
+                    dataType: "json",
+                    success: function (data) {
+                        imgs = data;
+                        displayImage(imgs.base64imgage);
+                    },
+                    error: function (xhr) {
+                        alert("Error occurred while loading the image. "
+                            + xhr.responseText);
+                    }
+                });
+            });
+
+            $("#btnClearImage").click(function () {
+                $("#divImageHolder").html("");
+            });
+        });
+
+        function EditUser1(ClientId) {
+            if (confirm('Are you sure to delete this record ?')) {
+                $.post("/Account/DeleteUserJ", { Id: ClientId }, function (data) {      //passing the id of the selected user to the action method for deletion
+                    if (data != null) {
+                        location.reload();
+                        alert("user deleted");
+                    }
+                    else {
+                        alert("error");
+                    }
+                });
+            }
+            return false;
+        }
+        function EditUser(ClientId) {
+            $(this).val('Processing…');
+            $("#Save").val('Update');
+            $("#Save").html("Update");
+            //var tt = JSON.stringify(ClientId);
+            //alert(ClientId);
+            $.get("/Account/EditUserJ", { Id: ClientId }, function (data) {              //fetching data of the selected user from controller
+                if (data != null) {
+                    //$("#tableUser").hide();
+                    //$("#CreateUser").hide();
+                    //$("#EditUser").show();
+
+                    //data contains the details of the user
+                    // now showing those details in the textbox
+                    alert(data.name);
+                    $("#Id").val(data.id);
+                    $("#ClientId").val(data.clientId);
+                    $("#Email").val(data.email);
+                    $("#Name").val(data.name);
+                    $("#Address").val(data.address);
+                    $("#PhoneNumber").val(data.phoneNumber);
+                    //$("#Iduser").val(data.id);
+                    //$("#IdEdit").val(data.clientId);
+                }
+            });
+        }
+
+
+
+        function DeleteProduct(ProductId) {
+            if (confirm('mcolisi')) {
+                $.post("/Product/DeleteProduct", { Id: ProductId }, function (data) {      //passing the id of the selected user to the action method for deletion
+                    if (data != null) {
+                        location.reload();
+                        alert("user deleted");
+                    }
+                    else {
+                        alert("error");
+                    }
+                });
+            }
+            return false;
+        }
+        function EditProduct1(ProductId) {
+            $(this).val('Processing…');
+            $("#Save").val('Update');
+            $("#submit").html("Update");
+            var tt = JSON.stringify(ProductId);
+            alert(ProductId);
+            $.get("/Product/EditProduct", { Id: ProductId }, function (data) {              //fetching data of the selected user from controller
+                if (data != null) {
+                    //$("#tableUser").hide();
+                    //$("#CreateUser").hide();
+                    //$("#EditUser").show();
+
+                    //data contains the details of the user
+                    // now showing those details in the textbox
+                    alert(data.productId);
+
+
+                    $("#Name").val(data.name);
+                    $("#Type").val(data.type);
+                    $("#Version").val(data.version);
+                    $("#Description").val(data.description);
+                    $("#ProductId").val(data.productId);
+
+                }
+            });
+        }
+        function EditProductClientProduct1(ClientProductId) {
+            $.get("/Clientproduct/EditClientProduct", { Id: ClientProductId }, function (data) {              //fetching data of the selected user from controller
+                if (data != null) {
+                    alert(data.clientId);
+                    var selValue = data.clientId;
+                    var selValue1 = data.productId;
+                    var selValue2 = data.estimatedbudget;
+                    var selValue3 = data.amountspent;
+                    var selValue4 = data.duration;
+                    var selValue5 = data.clientProducId;
+
+                    //Setting Value
+                    $("#ClientProducId").val(selValue5);
+                    $("#ClientId").val(selValue);
+                    $("#ProductId").val(selValue1);
+                    $("#Estimatedbudget").val(selValue2);
+                    $("#Amountspent").val(selValue3);
+                    $("#Duration").val(selValue4);
+
+                    alert("Successffully");
+                }
+                else {
+                    alert("Sorry No Data selected");
+                }
+
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+

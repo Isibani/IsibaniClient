@@ -1,0 +1,89 @@
+﻿@model IsibaniClient.Models.ProductViewModel
+    <!-- left column -->
+<div class="col-md-12">
+
+    <!-- general form elements -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Product Form</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form" id="create-form" method="" asp-route-id="Id" asp-action="RegisterProduct" onsubmit="return jQueryModalPostp(this);">
+
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <input type="hidden" id="ProductId" name="ProductId" asp-for="ProductId" />
+                    </div>
+                    <div class="col-md-3">
+
+                        <div class="form-group">
+
+                            <label for="Name">Name</label>
+                            
+                            <input type="text" class="form-control" asp-for="Name" id="Name" placeholder="Enter Name">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="Type">Type</label>
+                            <input type="text" class="form-control" asp-for="Type" id="Type" placeholder="Enter Type">
+                            <span asp-validation-for="Type" class="text-danger"></span>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-3">
+
+                        <div class="form-group">
+                            <label for="Version">Version</label>
+                            <input type="text" class="form-control" asp-for="Version" id="Version" placeholder="Enter Version">
+                            <span asp-validation-for="Version" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="Description">Description</label>
+                            <input type="text" class="form-control" asp-for="Description" id="Description" placeholder="Enter description">
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer" align="center">
+
+                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    <!-- /.card -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Product Data</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example3" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Type</th>
+                        <th>Version</th>
+                        <th>Description</th>
+                 
+                        <th>ActionLink</th>
+                    </tr>
+                </thead>
+
+
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+    <!-- Form Element sizes -->
+</div>
+

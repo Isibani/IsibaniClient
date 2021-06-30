@@ -1,0 +1,268 @@
+﻿   <!-- Default box -->
+@model IEnumerable<IsibaniClient.Models.ClientProductViewModel>
+<!-- Default box -->
+<div class="card card-solid" id="cardsolid">
+    <div class="card-body pb-0">
+        <div class="row d-flex align-items-stretch">
+            @foreach (var item in Model)
+            {
+                var ff = Model.Count();
+                if (Model.Count() == 1)
+                {
+<div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+    <div class="card bg-light">
+        <div class="card-header text-muted border-bottom-0">
+            Digital Strategist
+        </div>
+        <div class="card-body pt-0">
+            <div class="row">
+                <div class="col-7">
+                    <h2 class="lead"><b>@item.ClientName</b></h2>
+                    <p class="text-muted text-sm"><b>About: </b> @item.ClientName</p>
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: @item.Address </li>
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #:@item.Address</li>
+                    </ul>
+                </div>
+                <div class="col-5 text-center">
+                    <img src="~/Template/dist/img/Press.jpg" alt="" class="img-circle img-fluid">
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="text-right">
+                <a href="#" class="btn btn-sm bg-teal">
+                    <i class="fas fa-comments"></i>
+                </a>
+                <button type="button" id="Testing" value="@item.ClientId" class="btn btn-sm btn-primary"><i class="fas fa-user"></i>View Profile</button>
+                @*<a href="#" class="btn btn-sm btn-primary" id="@item.ClientId">
+                        <i class="fas fa-user"></i> View Profile
+                    </a>*@
+            </div>
+        </div>
+    </div>
+</div>
+                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                        <div class="card bg-light">
+                            <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="lead"><b>@item.ClientName</b></h2>
+                                        <p class="text-muted text-sm"><b>About: </b> @item.ClientName</p>
+                                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: @item.Address </li>
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #:@item.Address</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                        <img src="~/Template/dist/img/Press.jpg" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="#" class="btn btn-sm bg-teal">
+                                        <i class="fas fa-comments"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-user"></i> View Profile
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> }
+                else
+                {
+<div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+    <div class="card bg-light">
+        <div class="card-header text-muted border-bottom-0">
+            Digital Strategist
+        </div>
+        <div class="card-body pt-0">
+            <div class="row">
+                <div class="col-7">
+                    <h2 class="lead"><b>@item.ClientName</b></h2>
+                    <p class="text-muted text-sm"><b>About: </b> @item.ClientName</p>
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: @item.Address </li>
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #:@item.Address</li>
+                    </ul>
+                </div>
+                <div class="col-5 text-center">
+                    <img src="~/Template/dist/img/Press.jpg" alt="" class="img-circle img-fluid">
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="text-right">
+                <a href="#" class="btn btn-sm bg-teal">
+                    <i class="fas fa-comments"></i>
+                </a><button type="button" onclick="Details(this.value)" value="@item.ClientProducId" class="btn btn-sm btn-primary" data-toggle="modal" @*data-target="#modal-xl"*@><i class="fas fa-user"></i>View Pro </button>
+                <a href="#" class="btn btn-sm bg-teal">
+                    <i class="fas fa-comments"></i>
+                </a><button type="button" onclick="AllProjects(this.value)" value="@item.Id" class="btn btn-sm btn-primary" data-toggle="modal" @*data-target="#modal-xl"*@><i class="fas fa-user"></i>View Pro </button>
+                @*<a href="#" class="btn btn-sm btn-primary">
+            <i class="fas fa-user"></i> View Profile
+        </a>*@
+            </div>
+        </div>
+    </div>
+</div>}
+
+}
+
+        </div>
+    </div>
+    <!-- /.card-body -->
+    @*<div class="card-footer">
+        <nav aria-label="Contacts Page Navigation">
+            <ul class="pagination justify-content-center m-0">
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                <li class="page-item"><a class="page-link" href="#">7</a></li>
+                <li class="page-item"><a class="page-link" href="#">8</a></li>
+            </ul>
+        </nav>
+    </div>*@
+    <!-- /.card-footer -->
+
+</div>
+<!-- /.card -->
+<!-- /.card -->
+
+
+
+<div class="modal fade" id="modal-xl">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Project Details</h4>
+               
+            </div>
+            <div class="modal-body">
+                <div class="card" id="project">
+                    <div class="card-header">
+                        <h3 class="card-title">Client Data</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example5" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ClientProducId</th>
+                                    <th>ClientName</th>
+                                    <th>Address</th>
+                                    <th>ProductName</th>
+                                    <th>Type</th>
+                                    <th>Version</th>
+                                    <th>Description</th>
+                                    <th>ActionLink</th>
+                                </tr>
+                            </thead>
+
+
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                <!-- Default box -->
+                <div class="card" id="Details" display:none>
+                    <div class="card-header">
+
+
+                        <div class="card card-primary card-outline">
+                            <div class="card-body box-profile">
+                                <div class="text-center">
+                                    <img class="profile-user-img img-fluid img-circle"
+                                         src="~/Template/dist/img/Press.jpg"
+                                         alt="User profile picture">
+                                </div>
+
+                                <h3 class="profile-username text-center">Nina Mcintire</h3>
+
+                                <p class="text-muted text-center">Software Engineer</p>
+
+                                <ul class="list-group list-group-unbordered mb-3">
+                                    <li class="list-group-item">
+                                        <b>Address</b> <a class="float-right">1,322</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Phone Number</b> <a class="float-right">543</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Email</b> <a class="float-right">13,287</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Estimated budget</b> <a class="float-right">13,287</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Total amount spent</b> <a class="float-right">13,287</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Estimated project duration</b> <a class="float-right">13,287</a>
+                                    </li>
+                                </ul>
+
+                                <a href="#" class="btn btn-primary btn-block"><b>Client Websites</b></a>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    @*<div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+                                <div class="row">
+                                    <div class="col-12 col-sm-4">
+                                        <div class="info-box bg-light">
+                                            <div class="info-box-content">
+                                                <span class="info-box-text text-center text-muted">Estimated budget</span>
+                                                <span class="info-box-number text-center text-muted mb-0">   <text id="ClientId"></text></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="info-box bg-light">
+                                            <div class="info-box-content">
+                                                <span class="info-box-text text-center text-muted">Total amount spent</span>
+                                                <span class="info-box-number text-center text-muted mb-0"><text id="ClientId"></text></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="info-box bg-light">
+                                            <div class="info-box-content">
+                                                <span class="info-box-text text-center text-muted">Estimated project duration</span>
+                                                <span class="info-box-number text-center text-muted mb-0"><text id="ClientId"></text></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                           
+                            </div>
+                         
+                        </div>
+                    </div>*@
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                @*<button type="button" class="btn btn-primary">Save changes</button>*@
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

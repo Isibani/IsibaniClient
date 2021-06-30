@@ -1,0 +1,122 @@
+﻿@model IsibaniClient.Models.ClientProductViewModel
+    <!-- left column -->
+<div class="col-md-12">
+
+    <!-- general form elements -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Client Form</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form" id="create-form" method="" asp-route-id="Id" >
+
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <input type="hidden" id="ClientProducId" name="ClientProducId" asp-for="ClientProducId" />
+                    </div>
+                    <div class="col-md-3">
+
+                        <div class="form-group">
+
+                            <label for="ClientId">Client</label>
+
+                            <select id="ClientId" class="form-control" asp-for="ClientId"></select>
+                            <span asp-validation-for="ClientId" class="text-danger"></span>
+                        </div>
+
+
+
+                    </div>
+                    <div class="col-md-3">
+
+
+                        <div class="form-group">
+                            <label for="ProductId">Product</label>
+                            <select id="ProductId" class="form-control" asp-for="ProductId"></select>
+                            <span asp-validation-for="ProductId" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-3">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-2">
+
+
+                        <div class="form-group">
+                            <label for="Estimatedbudget">Estimatedbudget</label>
+                          
+                            <input type="number" class="form-control" asp-for="Estimatedbudget" id="Estimatedbudget" placeholder="Enter estimatedbudget">
+                            <span asp-validation-for="Estimatedbudget" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+
+
+                        <div class="form-group">
+                            <label for="Amountspent">Amountspent</label>
+                           
+                            <input type="number" class="form-control" asp-for="Amountspent" id="Amountspent" placeholder="Enter amountspent">
+                            <span asp-validation-for="Amountspent" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+
+
+                        <div class="form-group">
+                            <label for="Duration">Duration</label>
+                            <input type="number" class="form-control" asp-for="Duration" id="Duration" placeholder="Enter duration">
+                           
+                            <span asp-validation-for="Duration" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer" align="center">
+
+                <button type="button" id="save1" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    <!-- /.card -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Client Data</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example4" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ClientProducId</th>
+                        <th>ClientName</th>
+                        <th>Address</th>
+                        <th>ProductName</th>
+                        <th>Type</th>
+                        <th>Version</th>
+                        <th>Description</th>                       
+                        <th>ActionLink</th>
+                    </tr>
+                </thead>
+
+
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+    <!-- Form Element sizes -->
+</div>
+

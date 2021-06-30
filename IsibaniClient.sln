@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsibaniClient", "IsibaniClient\IsibaniClient.csproj", "{A12E7B0B-8C80-440E-B359-CEFBFD9345A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A12E7B0B-8C80-440E-B359-CEFBFD9345A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A12E7B0B-8C80-440E-B359-CEFBFD9345A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A12E7B0B-8C80-440E-B359-CEFBFD9345A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A12E7B0B-8C80-440E-B359-CEFBFD9345A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42088706-30CB-4F92-8BC5-8ED62561A4C5}
+	EndGlobalSection
+EndGlobal

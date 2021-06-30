@@ -1,0 +1,110 @@
+﻿@model IsibaniClient.Data.Product
+    <!-- left column -->
+
+@{
+   
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-12">
+
+    <!-- general form elements -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Client Form</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form">
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-3">
+
+                        <div class="form-group">
+
+                            <label for="Name">Product Name</label>
+                            <input type="email" class="form-control" asp-for="Name" id="Email" placeholder="Enter name">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="Email">Product Type</label>
+                            <input type="email" class="form-control" asp-for="Type" id="Email" placeholder="Enter product type">
+                            <span asp-validation-for="Type" class="text-danger"></span>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-3">
+
+                        <div class="form-group">
+                            <label for="Address">Product Version</label>
+                            <input type="email" class="form-control" asp-for="Version" id="Address" placeholder="Enter product version">
+                            <span asp-validation-for="Version" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="PhoneNumber">Product Description</label>
+                            <input type="email" class="form-control" asp-for="Description" id="Address" placeholder="Enter description">
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer" align="center">
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    <!-- /.card -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">DataTable with default features</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product type</th>
+                        <th>Version</th>
+                        <th>Description</th>
+                        <th>ActionLink</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Test data</td>
+                        <td>
+                            Test data
+                        </td>
+                        <td>Test data</td>
+                        <td> Test data</td>
+                        <td>Test data</td>
+                    </tr>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product type</th>
+                        <th>Version</th>
+                        <th>Description</th>
+                        <th>ActionLink</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+    <!-- Form Element sizes -->
+</div>
+
