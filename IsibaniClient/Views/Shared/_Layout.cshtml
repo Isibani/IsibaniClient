@@ -419,13 +419,11 @@
             });
 
             jQueryModalPost = form => {
-
+                var form = $("#create-form");
                 //if (form.isValid) {
                 //    alert("Testing");
                     try {
-                        if (form.isValid) {
-                            alert("Testing");
-                        }
+                       
                         $.ajax({
                             type: 'Post',
                             url: form.action,
@@ -439,18 +437,18 @@
                                     clienttable.ajax.reload();
                                     //clienttable.reload();
                                 }
-
+                                form.validate();
                                 alert(res.result);
                                 clienttable.ajax.reload();
                             },
                             error: function (err) {
                                 clienttable.ajax.reload();
                                 alert("Somethhing rong");
-                                console.log(err)
+                                console.log(err);
 
                             }
                         })
-                        return false;
+                      
                     } catch (ex) {
                         console.log(ex)
                     }
@@ -464,7 +462,9 @@
                
             jQueryModalPostp = form => {
               
-                    try {
+              
+                try {
+
                         $.ajax({
                             type: 'Post',
                             url: form.action,
@@ -478,22 +478,27 @@
                                     producttable.ajax.reload();
                                     clienttable.reload();
                                 }
-
+                            
+                                form.validate();
                                 alert(res.result);
                                 producttable.ajax.reload();
                             },
                             error: function (err) {
                                 producttable.ajax.reload();
                                 alert("Somethhing rong");
-                                console.log(err)
+                                console.log(err);
 
                             }
                         })
-                        return false;
+                    return false;
+                      
                     } catch (ex) {
                         console.log(ex)
                     }
-                
+
+              
+              
+                   
 
                   
                 }
@@ -501,7 +506,12 @@
            
 
         });
-
+        jQuery.validator.setDefaults({
+            debug: true,
+            success: "valid"
+        });
+ 
+      
         function AllProjects(ClientId) {
         $('#example5').DataTable().destroy();
              $("#example5").DataTable({
