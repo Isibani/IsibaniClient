@@ -38,7 +38,7 @@ namespace IsibaniClient.Controllers
            
             return Json ( new {data= db.GetAll() });
         }
-        //public IActionResult ProductList()
+        //public mxolisi IActionResult ProductList()
         //{
         //    var data = new { data = _context.Products.ToList() };
         //    return new JsonResult(_context.Products.ToList());
