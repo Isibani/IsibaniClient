@@ -37,7 +37,7 @@ namespace IsibaniClient.Controllers
         public async Task<ActionResult> RegisterProduct(ProductViewModel model)
         {
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 if (model.ProductId <= 0)
                 {

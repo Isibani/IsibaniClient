@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IsibaniClient.Migrations
 {
     [DbContext(typeof(ClientDbContext))]
-    [Migration("20210622114219_ff")]
-    partial class ff
+    [Migration("20210705104800_ll")]
+    partial class ll
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,7 +60,16 @@ namespace IsibaniClient.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Amountspent")
+                        .HasColumnType("int");
+
                     b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Estimatedbudget")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductId")

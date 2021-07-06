@@ -46,10 +46,6 @@ namespace IsibaniClient.Repository
                 DateLastEdited = user.Client.DateLastEdited,
                 Deleted = user.Client.Deleted,
                 UserId = user.Client.UserId,
-                Estimatedbudget=user.Estimatedbudget,
-                Amountspent=user.Amountspent,
-                Duration=user.Duration,
-               
 
             }).FirstOrDefault();
             return userVM;

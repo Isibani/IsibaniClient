@@ -38,7 +38,7 @@ namespace IsibaniClient.Models
 
     public class ProductViewModel
     {
-        public int? ProductId { get; set; }
+        public int ProductId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
